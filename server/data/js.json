@@ -1,0 +1,55 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "title": "Nuxt 3",
+      "question": "Nuxt 3 is a new framework for Vue.js. It provides a new way to build your application, with a more modern and efficient approach.",
+      "image": "https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80",
+      "type": "radio",
+      "options": [
+        {
+          "id": 1,
+          "text": "Yes"
+        },
+        {
+          "id": 2,
+          "text": "No"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Nuxt 3",
+      "question": "Nuxt 3 is a new framework for Vue.js. It provides a new way to build your application, with a more modern and efficient approach.",
+      "type": "checkbox",
+      "image": null,
+      "options": [
+        {
+          "id": 1,
+          "text": "Yes"
+        },
+        {
+          "id": 2,
+          "text": "No"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Nuxt 3",
+      "question": "Nuxt 3 is a new framework for Vue.js. It provides a new way to build your application, with a more modern and efficient approach.",
+      "type": "select",
+      "image": null,
+      "options": [
+        {
+          "id": 1,
+          "text": "Yes"
+        },
+        {
+          "id": 2,
+          "text": "No"
+        }
+      ]
+    }
+  ]
+}
