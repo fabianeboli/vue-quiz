@@ -6,11 +6,11 @@ export type Technology = {
 export type Question = {
   id: number,
   title: string,
-  question: string,
+  description: string,
   type: Type,
   image?: string | null,
   options?: {
-    id: number,
+    id: string,
     text: string,
     isCorrect: boolean
   }[]

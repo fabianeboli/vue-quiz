@@ -9,5 +9,7 @@
 </template>
 
 <style>
-
+html {
+  @apply text-slate-50;
+}
 </style>
