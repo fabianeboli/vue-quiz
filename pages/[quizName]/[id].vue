@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 import QuestionComponent from '~/components/Question.vue';
 import { shuffleArray } from '~/util/helper';
 import { useQuestionStore } from '~/store/store';
-onMounted(() => fetchQuestions());
+// onMounted(() => fetchQuestions());
 
 const store = useQuestionStore();
 
@@ -18,13 +18,6 @@ const formattedQuestions = ref<Question[]>([]);
 const questionIndex = ref<number>(0);
 
 
-
-const fetchQuestions = async () => {
-  const questions = await fetch(`~/server/data/${name}`);
-  if (questions.ok) {
-    formattedQuestions.value = shuffleArray(await questions.json());
-  }
-}
 
 const getCurrentQuestion = formattedQuestions.value[Number(id) - 1];
 console.log(getCurrentQuestion);
@@ -48,7 +41,6 @@ const questionEx: Question = {
     }
   ]
 }
-
 </script>
 
 <template>

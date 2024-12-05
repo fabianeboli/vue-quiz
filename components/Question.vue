@@ -22,19 +22,26 @@ const { question, questionsNumber, questionIndex } = defineProps<{
     <h2 class="mb-2 text-3xl">Question: {{ question.title }}</h2>
     <h2 class="text-2xl"> {{ question.description }} </h2>
     <ul class="flex flex-col gap-y-5 my-5 self-baseline w-full ml-5">
-      <li class="cursor-pointer bg-sky-800/40 hover:bg-sky-800/80 rounded-xl p-5" :class="{
-        'bg-emerald-800/80': isAnswerRevealed && isCorrect,
-        'bg-red-800/80': isAnswerRevealed && !isCorrect,
-        'bg-sky-900/80': store.selectedAnswer?.id === id
-      }"
-        v-for="{ id, text, isCorrect } in question.options" :key="id">
+      <li v-for="{ id, text, isCorrect } in question.options" :key="id"
+        @click="store.selectAnswer({ id, text, isCorrect })"
+       :disabled="isAnswerRevealed"
+        class="cursor-pointer bg-sky-800/40 hover:bg-sky-800/80 rounded-xl p-5 2xl:mx-[15%]" :class="{
+          '!bg-emerald-700/80': isAnswerRevealed && isCorrect && store.selectedAnswer?.id === id,
+          '!bg-red-700/80': isAnswerRevealed && !isCorrect && store.selectedAnswer?.id === id,
+          '!outline-emerald-600/80 outline-2 outline': isAnswerRevealed && isCorrect && store.selectedAnswer?.id !== id,
+          '!outline-red-700/80 outline-2 outline': isAnswerRevealed && !isCorrect && store.selectedAnswer?.id !== id,
+          'bg-sky-900/80': store.selectedAnswer?.id === id,
+          '!pointer-events-none': isAnswerRevealed
+        }">
         <label :for="String(id)">{{ id }}: </label>
         <button @click="store.answerQuestions(question.id, id)" :value="id"> {{ text }} </button>
       </li>
     </ul>
-    <button
+    <button :disabled="isAnswerRevealed"
       class="font-bold rounded-xl py-2 px-5 bg-sky-400/90 hover:bg-sky-500 shadow-md hover:drop-shadow-md my-10 xl:my-20"
-      @click="store.checkAnswer()">Answer</button>
+      :class="{
+        'bg-sky-900/90 hover:bg-sky-900/90 cursor-not-allowed': isAnswerRevealed
+      }" @click="store.checkAnswer(); isAnswerRevealed = true">Answer</button>
   </div>
 </template>
 
