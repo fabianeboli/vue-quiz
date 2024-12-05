@@ -4,16 +4,19 @@ export type Technology = {
 }
 
 export type Question = {
-  id: number,
+  id: string,
   title: string,
   description: string,
   type: Type,
   image?: string | null,
-  options?: {
-    id: string,
-    text: string,
-    isCorrect: boolean
-  }[]
+  options?: Answer[]
 }
+
+export type Answer = {
+  id: string,
+  text: string,
+  isCorrect: boolean
+}
+
 
 export type Type = 'radio' | 'checkbox' | 'text'
